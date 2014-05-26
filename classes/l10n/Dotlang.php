@@ -127,7 +127,7 @@ class Dotlang
     /*
      * Loads the file and returns a cleaned up array of the lines
      */
-    private function fileToArray($file)
+    public static function fileToArray($file)
     {
         if (! is_file($file)) {
             error_log($file . ' does not exist!');

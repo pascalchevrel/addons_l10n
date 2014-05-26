@@ -62,3 +62,26 @@ function updateInstallRdf($path, $needle, $content)
 
     fileForceContents($path, $install_rdf);
 }
+
+function normalizeLine($line) {
+    $line = explode(' ', $line);
+    $line = array_filter($line); // suppress blanks
+    $line = array_values($line); // reindex array
+    $line[0] = str_pad($line[0], 12);
+    $line[2] = str_pad($line[2], 12);
+    $line = trim(implode('  ', $line));
+
+    return $line;
+}
+
+function updateManifestWithLocale($path, $extension, $locale)
+{
+    $manifest = $path .'/chrome.manifest';
+    $lines = \l10n\Dotlang::fileToArray($manifest);
+    $lines[] = "locale $extension $locale locale/$locale/";
+    $lines = array_map('normalizeLine', $lines);
+    $lines = array_unique($lines);
+    sort($lines);
+
+    return file_put_contents($manifest, implode("\n", $lines));
+}
