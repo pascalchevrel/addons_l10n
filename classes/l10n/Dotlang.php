@@ -108,8 +108,6 @@ class Dotlang
         return !strncmp($string, $needle, strlen($needle));
     }
 
-
-
     public function getString($source)
     {
         if (array_key_exists($source, $this->strings)) {
@@ -117,6 +115,15 @@ class Dotlang
         }
 
         return isset($translation) ? $translation : $source;
+    }
+
+    public function getStringNoHTML($source)
+    {
+        $string = $this->getString($source);
+        $string = str_replace(['&nbsp;'], [' '], $string);
+        $string = strip_tags($string);
+
+        return $string;
     }
 
     public function cleanString($string)
