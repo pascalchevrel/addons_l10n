@@ -83,5 +83,5 @@ function updateManifestWithLocale($path, $extension, $locale)
     $lines = array_unique($lines);
     sort($lines);
 
-    return file_put_contents($manifest, implode("\n", $lines));
+    return file_put_contents($manifest, implode("\n", $lines) . "\n");
 }
