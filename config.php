@@ -8,6 +8,23 @@ require_once __DIR__ . '/vendor/autoload.php';
 $locales = ['de', 'es-ES', 'fr', 'id', 'it', 'ja', 'pt-BR'];
 
 $addons = [
-    'worldcupfeed' => '',
-    'feeds'        => '',
+    // 'worldcupfeed' => [
+    //     'worldcup.lang',
+    //     ['de', 'es-ES', 'fr', 'id', 'it', 'ja', 'pt-BR'],
+    //     'worldcupfeed.properties'
+    // ],
+    // 'feeds' => [
+    //     'homefeeds.lang',
+    //     ['de', 'es-ES', 'fr', 'id', 'it', 'ja', 'pt-BR'],
+    //     'feeds.properties'
+    // ],
+    'privacy-coach' => [
+        'privacy_coach.lang',
+        ['de', 'es-ES', 'fr', 'id', 'it', 'ja', 'pt-BR'],
+        'privacycoach.properties'
+    ],
 ];
+
+
+// privacycoach.dtd
+
