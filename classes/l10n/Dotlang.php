@@ -176,9 +176,12 @@ class Dotlang
 
     public function fileTranslated()
     {
-        $source = array_keys($this->strings);
+        $source       = array_keys($this->strings);
         $translations = array_values($this->strings);
-        return count(array_diff($source, $translations)) > 0;
+        $nb_todo      = count($this->strings);
+        $nb_done      = count(array_diff($source, $translations));
+
+        return ($nb_todo - $nb_done) == 0;
     }
 
 }
