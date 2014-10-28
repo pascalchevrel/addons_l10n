@@ -53,6 +53,8 @@ $privacy_coach_dtd_template = function() use($privacy_coach) {
     $link2 = 'For even more, you can explore our full set of <a>Security &amp; Privacy add-ons »</a>';
 
     return <<<TEMPLATE
+<!ENTITY welcome.title                  "{$privacy_coach->getStringNoHTML('Firefox Privacy Coach')}">
+
 <!ENTITY welcome.firefoxPrivacyCoach    "{$privacy_coach->getStringNoHTML('Firefox Privacy Coach')}">
 <!ENTITY welcome.byMozilla              "{$privacy_coach->getStringNoHTML('by Mozilla')}">
 
