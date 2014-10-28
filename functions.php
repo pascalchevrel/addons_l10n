@@ -48,9 +48,11 @@ function logger($str, $action='')
 
 function updateInstallRdf($path, $needle, $content)
 {
-    // World Cup
     $path = $path . 'install.rdf';
     $install_rdf = file_get_contents($path);
+
+    // remove Windows line endings to avoid mixed line endings
+    $install_rdf = str_replace("\r", '', $install_rdf);
 
     $install_rdf = preg_replace('#\s*<em\:localized>(.*?)<\/em\:localized>#s', '', $install_rdf);
 
