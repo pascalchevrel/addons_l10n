@@ -3,51 +3,55 @@ namespace l10n;
 
 $privacy_coach_properties_template = function() use($privacy_coach) {
     return <<<TEMPLATE
-privacyCoach.title={privacy_coach->getStringNoHTML('Privacy Coach')}
+privacyCoach.title={$privacy_coach->getStringNoHTML('Privacy Coach')}
 
-httpsWarning.message={privacy_coach->getStringNoHTML("%S doesn't use https. Are you sure you want to continue?")}
-httpsWarning.dontAsk={privacy_coach->getStringNoHTML("Don't ask me again for %S")}
+httpsWarning.message={$privacy_coach->getStringNoHTML("%S doesn't use https. Are you sure you want to continue?")}
+httpsWarning.dontAsk={$privacy_coach->getStringNoHTML("Don't ask me again for %S")}
 
-defaultWarning.message={privacy_coach->getStringNoHTML("%S doesn't use https. You may want to change your default.")}
+defaultWarning.message={$privacy_coach->getStringNoHTML("%S doesn't use https. You may want to change your default.")}
 
-addEngineWarning.message={privacy_coach->getStringNoHTML("%S doesn't use https. Are you sure you want to add this search engine?")}
+addEngineWarning.message={$privacy_coach->getStringNoHTML("%S doesn't use https. Are you sure you want to add this search engine?")}
 
-prefs.dnt.noPref={privacy_coach->getStringNoHTML('Do not tell sites anything about my tracking preferences')}
-prefs.dnt.disallowTracking={privacy_coach->getStringNoHTML('Tell sites that I do not want to be tracked')}
-prefs.dnt.allowTracking={privacy_coach->getStringNoHTML('Tell sites that I want to be tracked')}
+prefs.dnt.noPref={$privacy_coach->getStringNoHTML('Do not tell sites anything about my tracking preferences')}
+prefs.dnt.disallowTracking={$privacy_coach->getStringNoHTML('Tell sites that I do not want to be tracked')}
+prefs.dnt.allowTracking={$privacy_coach->getStringNoHTML('Tell sites that I want to be tracked')}
 
-prefs.cookies.firstPartyOnly={privacy_coach->getStringNoHTML('Enabled, excluding 3rd party')}
+prefs.cookies.firstPartyOnly={$privacy_coach->getStringNoHTML('Enabled, excluding 3rd party')}
 
-prefs.enabled={privacy_coach->getStringNoHTML('Enabled')}
-prefs.disabled={privacy_coach->getStringNoHTML('Disabled')}
+prefs.enabled={$privacy_coach->getStringNoHTML('Enabled')}
+prefs.disabled={$privacy_coach->getStringNoHTML('Disabled')}
 
-prefs.currentValue={privacy_coach->getStringNoHTML('Current setting: %S')}
+prefs.currentValue={$privacy_coach->getStringNoHTML('Current setting: %S')}
 
-search.https={privacy_coach->getStringNoHTML("Your default search engine (%S) uses HTTPS. Search away!")}
-search.http={privacy_coach->getStringNoHTML("Your default search engine (%S) doesn't use HTTPS — you should consider changing it now.")}
+search.https={$privacy_coach->getStringNoHTML("Your default search engine (%S) uses HTTPS. Search away!")}
+search.http={$privacy_coach->getStringNoHTML("Your default search engine (%S) doesn't use HTTPS — you should consider changing it now.")}
 
 # https://support.mozilla.org/kb/clear-your-browsing-history-and-other-personal-dat
-banner.1.text={privacy_coach->getStringNoHTML('Discover all the ways you can clear your personal browsing data from Firefox »')}
+banner.1.text={$privacy_coach->getStringNoHTML('Discover all the ways you can clear your personal browsing data from Firefox »')}
 
 # https://support.mozilla.org/kb/create-secure-passwords-keep-your-identity-safe
-banner.2.text={privacy_coach->getStringNoHTML('Learn how to create secure, easy-to-remember passwords to keep your online identity safe »')}
+banner.2.text={$privacy_coach->getStringNoHTML('Learn how to create secure, easy-to-remember passwords to keep your online identity safe »')}
 
 # https://support.mozilla.org/kb/firefox-health-report-understand-your-android-browser-perf
-banner.3.text={privacy_coach->getStringNoHTML('Firefox Health Report determines how well your browser is performing and what you can do to improve it. Learn more »')}
+banner.3.text={$privacy_coach->getStringNoHTML('Firefox Health Report determines how well your browser is performing and what you can do to improve it. Learn more »')}
 
 # https://support.mozilla.org/kb/how-does-insecure-content-affect-safety-android
-banner.4.text={privacy_coach->getStringNoHTML('Discover how Firefox for Android automatically blocks unsecure or mixed content from otherwise secure Web pages »')}
+banner.4.text={$privacy_coach->getStringNoHTML('Discover how Firefox for Android automatically blocks unsecure or mixed content from otherwise secure Web pages »')}
 
 # https://support.mozilla.org/kb/share-your-android-device-firefox-guest-session
-banner.5.text={privacy_coach->getStringNoHTML('A guest session allows someone else to use your Firefox without giving them access to your personal information. Learn more »')}
+banner.5.text={$privacy_coach->getStringNoHTML('A guest session allows someone else to use your Firefox without giving them access to your personal information. Learn more »')}
 
 # https://support.mozilla.org/kb/mobile-private-browsing-browse-web-without-saving-syncing-info
-banner.6.text={privacy_coach->getStringNoHTML('Browse the Internet without having any of your personal browsing data or history being saved. Learn more »')}
+banner.6.text={$privacy_coach->getStringNoHTML('Browse the Internet without having any of your personal browsing data or history being saved. Learn more »')}
 
 TEMPLATE;
 };
 
 $privacy_coach_dtd_template = function() use($privacy_coach) {
+
+    $link1 = 'Firefox Health Report provides you with information about your browser’s performance and stability over time. It then gives you useful tips based on that data to help you get the most out of your browsing experience. For more information about how we handle your data, see our <a>privacy policy</a>.';
+    $link2 = 'For even more, you can explore our full set of <a>Security &amp; Privacy add-ons »</a>';
+
     return <<<TEMPLATE
 <!ENTITY welcome.firefoxPrivacyCoach    "{$privacy_coach->getStringNoHTML('Firefox Privacy Coach')}">
 <!ENTITY welcome.byMozilla              "{$privacy_coach->getStringNoHTML('by Mozilla')}">
@@ -66,9 +70,9 @@ $privacy_coach_dtd_template = function() use($privacy_coach) {
 <!ENTITY prefs.cookies.learnMore        "{$privacy_coach->getStringNoHTML('Learn more about Cookies')}">
 
 <!ENTITY prefs.fhr.name                 "{$privacy_coach->getStringNoHTML('Firefox Health Report')}">
-<!ENTITY prefs.fhr.pre                  "{$privacy_coach->getStringNoHTML('Firefox Health Report provides you with information about your browser’s performance and stability over time. It then gives you useful tips based on that data to help you get the most out of your browsing experience. For more information about how we handle your data, see our ')}">
-<!ENTITY prefs.fhr.link                 "{$privacy_coach->getStringNoHTML('privacy policy')}">
-<!ENTITY prefs.fhr.post                 "{$privacy_coach->getStringNoHTML('.')}">
+<!ENTITY prefs.fhr.pre                  "{$privacy_coach->getStringPreNoHTML($link1)}">
+<!ENTITY prefs.fhr.link                 "{$privacy_coach->getStringLinkNoHTML($link1)}">
+<!ENTITY prefs.fhr.post                 "{$privacy_coach->getStringPostNoHTML($link1)}">
 <!ENTITY prefs.fhr.learnMore            "{$privacy_coach->getStringNoHTML('Learn more about Firefox Health Report')}">
 
 <!ENTITY prefs.telemetry.name           "{$privacy_coach->getStringNoHTML('Telemetry')}">
@@ -109,9 +113,9 @@ $privacy_coach_dtd_template = function() use($privacy_coach) {
 <!ENTITY addons.https.description       "{$privacy_coach->getStringNoHTML('Encrypts your communications with many major websites, making your browsing more secure.')}">
 <!ENTITY addons.sdc.title               "{$privacy_coach->getStringNoHTML('Self Destructing Cookies')}">
 <!ENTITY addons.sdc.description         "{$privacy_coach->getStringNoHTML("Gets rid of a site's cookies and LocalStorage as soon as you close any open tabs for that page. It also protects against trackers and zombie-cookies and lets you whitelist services you know are trustworthy.")}">
-<!ENTITY addons.more.pre                "{$privacy_coach->getStringNoHTML('For even more, you can explore our full set of ')}">
-<!ENTITY addons.more.link               "{$privacy_coach->getStringNoHTML('Security &amp; Privacy add-ons »')}">
-<!ENTITY addons.more.post               "{$privacy_coach->getStringNoHTML('')}">
+<!ENTITY addons.more.pre                "{$privacy_coach->getStringPreNoHTML($link2)}">
+<!ENTITY addons.more.link               "{$privacy_coach->getStringLinkNoHTML($link2)}">
+<!ENTITY addons.more.post               "{$privacy_coach->getStringPostNoHTML($link2)}">
 
 <!ENTITY settingsButton.privacy         "{$privacy_coach->getStringNoHTML('Privacy Settings')}">
 <!ENTITY settingsButton.mozilla         "{$privacy_coach->getStringNoHTML('Mozilla Settings')}">
@@ -128,7 +132,7 @@ $privacy_coach_description_template = function($locale) use($privacy_coach) {
         <em:localized>
           <Description>
             <em:locale>{$locale}</em:locale>
-            <em:name>$privacy_coach->getStringNoHTML('Privacy Coach')}</em:name>
+            <em:name>{$privacy_coach->getStringNoHTML('Privacy Coach')}</em:name>
             <em:description>{$privacy_coach->getStringNoHTML('Add-on that helps you use privacy features in your browser.')}</em:description>
           </Description>
         </em:localized>

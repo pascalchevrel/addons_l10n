@@ -28,13 +28,13 @@ foreach ($locales as $locale) {
         fileForceContents($properties_path, $privacy_coach_properties_template());
 
         logger($locale . ': privacy coach dtd file');
-        fileForceContents($dtd_path, $privacy_coach_template());
+        fileForceContents($dtd_path, $privacy_coach_dtd_template());
 
         // Prepare updated install.rdf file
         $desc_privacy_coach .= $privacy_coach_description_template($locale);
 
         // Update chrome.manifest file
-        updateManifestWithLocale(__DIR__ .'/addons/privacy-coach', 'privacy-coach', $locale);
+        updateManifestWithLocale(__DIR__ .'/addons/privacy-coach', 'privacycoach', $locale);
     }
 
     // Reset all strings before looping through the next locale
