@@ -126,6 +126,28 @@ class Dotlang
         return $string;
     }
 
+    public function getStringPreNoHTML($source)
+    {
+        $string = $this->getString($source);
+
+        return strstr($string, '<a>', true);
+    }
+
+    public function getStringLinkNoHTML($source)
+    {
+        $string = $this->getString($source);
+        preg_match("/<a>(.*?)<\/a>/", $string, $matches);
+
+        return $matches[1];
+    }
+
+    public function getStringPostNoHTML($source)
+    {
+        $string = $this->getString($source);
+
+        return substr(strstr($string, '</a>'), strlen('</a>'));
+    }
+
     public function cleanString($string)
     {
         return trim(str_replace('{ok}', '', $string));
