@@ -33,16 +33,16 @@ banner.1.text={$privacy_coach->getStringNoHTML('Discover all the ways you can cl
 banner.2.text={$privacy_coach->getStringNoHTML('Learn how to create secure, easy-to-remember passwords to keep your online identity safe »')}
 
 # https://support.mozilla.org/kb/firefox-health-report-understand-your-android-browser-perf
-banner.3.text={$privacy_coach->getStringNoHTML('Firefox Health Report determines how well your browser is performing and what you can do to improve it. Learn more »')}
+banner.3.text={$privacy_coach->getStringNoHTML('Improve your browser’s performance with tips from your Firefox Health Report. Learn more »')}
 
 # https://support.mozilla.org/kb/how-does-insecure-content-affect-safety-android
-banner.4.text={$privacy_coach->getStringNoHTML('Discover how Firefox for Android automatically blocks unsecure or mixed content from otherwise secure Web pages »')}
+banner.4.text={$privacy_coach->getStringNoHTML('Discover how Firefox for Android blocks unsecure or mixed content from otherwise secure Web pages »')}
 
 # https://support.mozilla.org/kb/share-your-android-device-firefox-guest-session
-banner.5.text={$privacy_coach->getStringNoHTML('A guest session allows someone else to use your Firefox without giving them access to your personal information. Learn more »')}
+banner.5.text={$privacy_coach->getStringNoHTML('Guest browsing is a great way to share your browser without sharing your private info. Learn more »')}
 
 # https://support.mozilla.org/kb/mobile-private-browsing-browse-web-without-saving-syncing-info
-banner.6.text={$privacy_coach->getStringNoHTML('Browse the Internet without having any of your personal browsing data or history being saved. Learn more »')}
+banner.6.text={$privacy_coach->getStringNoHTML('Private browsing lets you search the Web without your personal data being stored. Learn more »')}
 
 TEMPLATE;
 };
