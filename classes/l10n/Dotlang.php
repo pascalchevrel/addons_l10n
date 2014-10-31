@@ -150,7 +150,7 @@ class Dotlang
 
     public function cleanString($string)
     {
-        return trim(str_replace('{ok}', '', $string));
+        return trim(str_replace(['{ok}', '{OK}'], '', $string));
     }
 
     /*
