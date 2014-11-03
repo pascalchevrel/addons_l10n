@@ -48,7 +48,7 @@ function logger($str, $action='')
 
 function updateInstallRdf($path, $needle, $content)
 {
-    $path = $path . 'install.rdf';
+    $path = $path . '/install.rdf';
     $install_rdf = file_get_contents($path);
 
     // remove Windows line endings to avoid mixed line endings
@@ -86,4 +86,10 @@ function updateManifestWithLocale($path, $extension, $locale)
     sort($lines);
 
     return file_put_contents($manifest, implode("\n", $lines) . "\n");
+}
+
+function showExec($command, $message)
+{
+    exec($command, $output);
+    return "--- {$message} ---\n" . implode("\n", $output) . "\n";
 }
