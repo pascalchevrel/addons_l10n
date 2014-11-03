@@ -91,5 +91,5 @@ function updateManifestWithLocale($path, $extension, $locale)
 function showExec($command, $message)
 {
     exec($command, $output);
-    return "--- {$message} ---\n" . implode("\n", $output) . "\n";
+    return " \n--- {$message} ---\n" . implode("\n", $output) . "\n\n";
 }

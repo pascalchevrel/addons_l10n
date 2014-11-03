@@ -52,4 +52,4 @@ updateInstallRdf(
 );
 
 chdir(PRIVACY_COACH);
-print showExec('git status', 'Generate locales for add-on');
+print showExec('git status', 'Status of your git repository after processing');
