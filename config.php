@@ -11,4 +11,4 @@ define('SVN_LOCALES', realpath(__DIR__ . '/locales/'));
 // Path to local clone of your fork of https://github.com/leibovic/privacy-coach
 define('PRIVACY_COACH', realpath(__DIR__ . '/addons/privacy-coach/'));
 
-$locales = [ 'de', 'fr', 'es-ES', 'es-MX', 'hu', 'id', 'ja', 'pl', 'pt-BR', 'ru', 'zh-TW' ];
+$locales = ['cs', 'de', 'es-ES', 'es-MX', 'fr', 'hu', 'id', 'ja', 'pl', 'pt-BR', 'ru', 'sq', 'zh-TW'];
